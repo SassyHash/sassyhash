@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40080208-1']);
+  _gaq.push(['_setDomainName', 'sassyha.sh']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
+
+  <meta name="google-site-verification" content="DvfPkdaWryOQDHSNe9gXCNTwDx8sdKq5g7v1Et3fzTg" />
+
+  <title>SassyHash</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="everything">
+  <header class="navbar navbar-inverse">
+    <div class="navbar-inner">
+
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href="#">Sassy Hash</a>
+      
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="dropdown">
+            <%= link_to "B", dresses_path %>
+          </li>
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Page</a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <% if user_signed_in? %>
+              <li><%= link_to "Dresses", users_path(current_user)%></li>
+              <li><%= link_to "Rentals", users_path(current_user)%></li>
+              <% end %>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> About Us</a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><%= link_to "Contact",  contact_us_path %></li>
+              <li><%= link_to "Her Story", our_story_path %></li>
+              <li><%= link_to "Legal Stuff", legal_stuff_path %></li>
+            </ul>
+          </li>   
+
+          <%if user_signed_in? %>
+            <li><%= link_to "Sign-Out", signout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Log-In", signin_path %></li>
+          <%end%>
+
+        </ul>
+        <ul class="nav pull-right" >
+          <% if user_signed_in? %>
+            <li class="navbar-text current-user-name"> Hi, <%= current_user.first_name %> (<%=current_user.email%>) </li>
+          <% else %>
+            <li class="navbar-text current-user-name" style="color: #f4c2c2"> You aren't signed in. :( </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </header>
+<%= yield %>
+
+
+<footer>
+    <div class="footer-stuff">
+      &copy; {Sassy Hash} 2013
+    </div>
+</footer>
+</body>
+</html>
