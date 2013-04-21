@@ -1,4 +1,10 @@
 SassyHash::Application.routes.draw do
+root :to => 'static#home'
+
+match 'about' => 'static#about'
+match 'contact' => 'static#contact'
+match 'work' => 'static#work'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<div class="everything">
+<div class="container">
   <header class="navbar navbar-inverse">
     <div class="navbar-inner">
 
@@ -40,41 +40,13 @@
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li class="dropdown">
-            <%= link_to "B", dresses_path %>
+            <%= link_to "B", about_path %>
           </li>
-
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Page</a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <% if user_signed_in? %>
-              <li><%= link_to "Dresses", users_path(current_user)%></li>
-              <li><%= link_to "Rentals", users_path(current_user)%></li>
-              <% end %>
-            </ul>
-          </li>
-
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> About Us</a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <li><%= link_to "Contact",  contact_us_path %></li>
-              <li><%= link_to "Her Story", our_story_path %></li>
-              <li><%= link_to "Legal Stuff", legal_stuff_path %></li>
-            </ul>
-          </li>   
-
-          <%if user_signed_in? %>
-            <li><%= link_to "Sign-Out", signout_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "Log-In", signin_path %></li>
-          <%end%>
-
         </ul>
+
         <ul class="nav pull-right" >
-          <% if user_signed_in? %>
-            <li class="navbar-text current-user-name"> Hi, <%= current_user.first_name %> (<%=current_user.email%>) </li>
-          <% else %>
-            <li class="navbar-text current-user-name" style="color: #f4c2c2"> You aren't signed in. :( </li>
-          <% end %>
+          <li class="navbar-text"> <%= link_to "My Work", work_path %> </li>
+          <li class="navbar-text" style="color: #f4c2c2"> <%= link_to "Contact B", contact_path %> </li>
         </ul>
       </div>
     </div>

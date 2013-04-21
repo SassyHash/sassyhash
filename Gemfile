@@ -22,8 +22,12 @@ end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  
+  gem 'less-rails'
+  gem 'therubyracer'
+  gem 'twitter-bootstrap-rails'
+
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass', '~> 2.2.2.0'
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
