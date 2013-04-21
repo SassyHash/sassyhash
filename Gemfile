@@ -22,7 +22,7 @@ end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  
+
   gem 'less-rails'
   gem 'therubyracer'
   gem 'twitter-bootstrap-rails'
